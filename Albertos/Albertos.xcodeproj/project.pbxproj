@@ -29,6 +29,7 @@
 		372AB77A2C3FA8D4009C7758 /* MenuFetchingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB7792C3FA8D4009C7758 /* MenuFetchingStub.swift */; };
 		7805365A2C40AEE100AAFD21 /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780536592C40AEE100AAFD21 /* MenuItemTests.swift */; };
 		7805365C2C40B08300AAFD21 /* menu_item.json in Resources */ = {isa = PBXBuildFile; fileRef = 7805365B2C40B08300AAFD21 /* menu_item.json */; };
+		7805365E2C40B9E000AAFD21 /* XCTestCase+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7805365D2C40B9E000AAFD21 /* XCTestCase+JSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		372AB7792C3FA8D4009C7758 /* MenuFetchingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetchingStub.swift; sourceTree = "<group>"; };
 		780536592C40AEE100AAFD21 /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
 		7805365B2C40B08300AAFD21 /* menu_item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = menu_item.json; sourceTree = "<group>"; };
+		7805365D2C40B9E000AAFD21 /* XCTestCase+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+JSON.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				372AB7792C3FA8D4009C7758 /* MenuFetchingStub.swift */,
 				780536592C40AEE100AAFD21 /* MenuItemTests.swift */,
 				7805365B2C40B08300AAFD21 /* menu_item.json */,
+				7805365D2C40B9E000AAFD21 /* XCTestCase+JSON.swift */,
 			);
 			path = AlbertosTests;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7805365E2C40B9E000AAFD21 /* XCTestCase+JSON.swift in Sources */,
 				372AB7682C3F6829009C7758 /* MenuSection+Fixture.swift in Sources */,
 				372AB7722C3F757D009C7758 /* MenuListViewModelTests.swift in Sources */,
 				372AB7642C3F5F79009C7758 /* Array+Safe.swift in Sources */,
