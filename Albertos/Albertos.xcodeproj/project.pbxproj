@@ -165,9 +165,9 @@
 				372AB7712C3F757D009C7758 /* MenuListViewModelTests.swift */,
 				372AB7792C3FA8D4009C7758 /* MenuFetchingStub.swift */,
 				780536592C40AEE100AAFD21 /* MenuItemTests.swift */,
-				7805365F2C40BB4D00AAFD21 /* MenuFetcherTests.swift */,
 				7805365B2C40B08300AAFD21 /* menu_item.json */,
 				7805365D2C40B9E000AAFD21 /* XCTestCase+JSON.swift */,
+				7805365F2C40BB4D00AAFD21 /* MenuFetcherTests.swift */,
 			);
 			path = AlbertosTests;
 			sourceTree = "<group>";
