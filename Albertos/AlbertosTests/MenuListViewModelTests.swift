@@ -10,35 +10,42 @@ import Combine
 
 @testable import Albertos
 
+
+struct TestError: Error, Equatable {
+    let id: Int
+}
+
 final class MenuListViewModelTests: XCTestCase {
     
     var cancellables = Set<AnyCancellable>()
     
     func testCallsGivenGroupingFunction() throws {
         try XCTSkipIf(true, "skipping this for now, keeping it to reuse part of the code later on")
-        
+
         var called = false
         let inputSections = [MenuSection.fixture()]
-        let probeClosure: ([MenuItem]) -> [MenuSection] = { _ in
+        let _: ([MenuItem]) -> [MenuSection] = { _ in
             called = true
             return inputSections
         }
         
-        //        let viewModel = MenuList.ViewModel(menu: [.fixture()], menuGrouping: probeClosure)
-        //        let sections = viewModel.sections
+//        let viewModel = MenuList.ViewModel(menu: [.fixture()], menuGrouping: probeClosure)
+//        let sections = viewModel.sections
         
         // Check that the given closure was called
         XCTAssertTrue(called)
         // Check that the returned value was build with the closure
-        //        XCTAssertEqual(sections, inputSections)
+//        XCTAssertEqual(sections, inputSections)
     }
     
-    func testWhenFetchingStartsPublishesEmptyMenu() {
-        let viewModel = MenuList.ViewModel()
-        XCTAssertTrue(viewModel.sections.isEmpty)
+    func testWhenFetchingStartsPublishesEmptyMenu() throws {
+        let viewModel = MenuList.ViewModel(menuFetching: MenuFetchingStub(returning: .success([.fixture()])))
+        let sections = try viewModel.sections.get()
+        XCTAssertTrue(sections.isEmpty)
     }
     
     func testWhenSucceedsFetchingSectionsReceivedMenuAndGivenGroupingClosure() throws {
+
         var receivedMenu: [MenuItem]?
         let expectedSections: [MenuSection] = [.fixture()]
         
@@ -47,8 +54,11 @@ final class MenuListViewModelTests: XCTestCase {
             return expectedSections
         }
         
+        let expectedMenu: [MenuItem] = [.fixture()]
+        let menuFetchingStub = MenuFetchingStub(returning: .success(expectedMenu))
+        
         let viewModel = MenuList.ViewModel(
-            menuFetching: MenuFetchingSample(),
+            menuFetching: menuFetchingStub,
             menuGrouping: spyClosure
         )
         
@@ -58,8 +68,38 @@ final class MenuListViewModelTests: XCTestCase {
         viewModel.$sections
             .dropFirst()
             .sink { value in
-                XCTAssertEqual(receivedMenu, menu)
-                XCTAssertEqual(value, expectedSections)
+                guard case .success(let sections) = value else {
+                    return XCTFail("Expected a successful Result, got: \(value)")
+                }
+
+                XCTAssertEqual(receivedMenu, expectedMenu)
+                XCTAssertEqual(sections, expectedSections)
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testWhenFetchingFailsPublishesAnError() {
+        let expectedError = TestError(id: 123)
+        let menuFetchingStub = MenuFetchingStub(returning: .failure(expectedError))
+        
+        let viewModel = MenuList.ViewModel(
+            menuFetching: menuFetchingStub,
+            menuGrouping: { _ in [] }
+        )
+        let expectation = XCTestExpectation(description: "에러를 발행함")
+        
+        viewModel
+            .$sections
+            .dropFirst()
+            .sink { value in
+                guard case .failure(let error) = value else {
+                    return XCTFail("Expected a failing Result, got: \(value)")
+                }
+                
+                XCTAssertEqual(error as? TestError, expectedError)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
