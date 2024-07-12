@@ -27,6 +27,7 @@
 		372AB7762C3F9316009C7758 /* MenuFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB7752C3F9316009C7758 /* MenuFetching.swift */; };
 		372AB7782C3F9402009C7758 /* MenuFetchingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB7772C3F9402009C7758 /* MenuFetchingSample.swift */; };
 		372AB77A2C3FA8D4009C7758 /* MenuFetchingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB7792C3FA8D4009C7758 /* MenuFetchingStub.swift */; };
+		7805365A2C40AEE100AAFD21 /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780536592C40AEE100AAFD21 /* MenuItemTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		372AB7752C3F9316009C7758 /* MenuFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetching.swift; sourceTree = "<group>"; };
 		372AB7772C3F9402009C7758 /* MenuFetchingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetchingSample.swift; sourceTree = "<group>"; };
 		372AB7792C3FA8D4009C7758 /* MenuFetchingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFetchingStub.swift; sourceTree = "<group>"; };
+		780536592C40AEE100AAFD21 /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				372AB76D2C3F6D30009C7758 /* MenuRowViewModelTests.swift */,
 				372AB7712C3F757D009C7758 /* MenuListViewModelTests.swift */,
 				372AB7792C3FA8D4009C7758 /* MenuFetchingStub.swift */,
+				780536592C40AEE100AAFD21 /* MenuItemTests.swift */,
 			);
 			path = AlbertosTests;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				372AB7642C3F5F79009C7758 /* Array+Safe.swift in Sources */,
 				372AB7662C3F5F9B009C7758 /* MenuItem+Fixture.swift in Sources */,
 				372AB76E2C3F6D30009C7758 /* MenuRowViewModelTests.swift in Sources */,
+				7805365A2C40AEE100AAFD21 /* MenuItemTests.swift in Sources */,
 				3705AE1F2C3E4064006FB385 /* MenuGroupingTests.swift in Sources */,
 				372AB77A2C3FA8D4009C7758 /* MenuFetchingStub.swift in Sources */,
 			);
